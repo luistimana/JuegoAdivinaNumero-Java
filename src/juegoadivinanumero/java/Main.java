@@ -17,7 +17,40 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        jugar(5);
+        
+        OUTER:
+        while(true){
+            System.out.println("    Juego adivina el numero     \n");
+            System.out.println("1 - Nivel facil.\n"
+                             + "2 - Nivel Intermedio.\n"
+                             + "3 - Nivel Dificil.\n"
+                             + "4 - Salir.");
+            
+            Scanner leer = new Scanner(System.in);
+            System.out.print("Ingrese una opcion: ");
+            int opcion = leer.nextInt();
+            
+            switch(opcion){
+                case 1:
+                    jugar(10);
+                    break;
+                
+                case 2:
+                    jugar(7);
+                    break;
+                
+                case 3:
+                    jugar(5);
+                    break;
+                
+                case 4:
+                    System.out.println("Cerrando el juego.");
+                    break OUTER;
+                    
+                default:
+                    System.out.println("Opcion Incorrecta");
+            }
+        }
     }
     
     static void jugar(int vidas){
@@ -42,6 +75,7 @@ public class Main {
                 System.out.println("----------------------------------");
                 System.out.println("|   Juego terminado, perdiste.   |");
                 System.out.println("----------------------------------");
+                break;
             }
             
             System.out.println("----------------------------------");
